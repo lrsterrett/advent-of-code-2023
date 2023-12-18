@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println(solveDay2())
+	fmt.Println(solveDay3Part1())
 }

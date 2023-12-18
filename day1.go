@@ -28,6 +28,7 @@ func solveDay1() int {
 	
 	for scanner.Scan() {
 		line := scanner.Text()
+		fmt.Println(line)
 
 		firstIntIndex, firstInt, lastIntIndex, lastInt := len(line) + 1, 0, -1, 0
 
@@ -66,14 +67,19 @@ func solveDay1() int {
 			if indexInLine < firstIntIndex {
 				firstIntIndex = indexInLine
 				firstInt = i + 1
-			} else if indexInLine > lastIntIndex {
-				lastIntIndex = indexInLine
+			}
+
+			lastIndexInLine := strings.LastIndex(line, numAsStr)
+
+			if lastIndexInLine > lastIntIndex {
+				lastIntIndex = lastIndexInLine
 				lastInt = i + 1
 			}
 		}
 
 		num, errAtoi := strconv.Atoi(strconv.Itoa(firstInt) + strconv.Itoa(lastInt))
 		check(errAtoi)
+		fmt.Println(num)
 		
 		sum += num
 	}
